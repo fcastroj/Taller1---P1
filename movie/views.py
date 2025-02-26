@@ -10,7 +10,7 @@ def home(request):
     # return render(request, 'home.html', {'name': 'Felipe Castro Jaimes'})
     searchTerm = request.GET.get('searchMovie')
     if searchTerm:
-        movies = Movie.objects.filter(tittle__icontains=searchTerm)
+        movies = Movie.objects.filter(title__icontains=searchTerm)
     else:
         movies = Movie.objects.all()
     return render(request, 'home.html', {'searchTerm':searchTerm, 'movies': movies})
